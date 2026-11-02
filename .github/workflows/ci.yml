@@ -1,15 +1,16 @@
-
 name: CI
 
 on:
   pull_request:
-  push:
-    branches: [main]
 
 jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Placeholder checks
-        run: echo "Lint and tests will be added here"
+
+      - name: Lint (placeholder)
+        run: echo "Lint checks will be added when the application code is available"
+
+      - name: Unit tests (placeholder)
+        run: echo "Unit tests will be added when the application code is available"
