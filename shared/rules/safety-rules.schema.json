@@ -5,42 +5,72 @@
   "description": "One rules file used by the Python backend (authoritative) and the TypeScript mirror in the browser. Source: SRS v1.2 Appendix C, Table 4.7, FR-ALG-01 to 11. Owner: Khansa Farooq.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "rulesVersion", "contentStatus", "riskLevels", "traceFlags", "allergens", "dietTypes"],
+  "required": [
+    "schemaVersion",
+    "rulesVersion",
+    "contentStatus",
+    "riskLevels",
+    "traceFlags",
+    "allergens",
+    "dietTypes"
+  ],
   "properties": {
-    "schemaVersion": { "const": 1 },
-    "rulesVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "schemaVersion": {
+      "const": 1
+    },
+    "rulesVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
     "contentStatus": {
       "description": "skeleton = structure only (S1-FM-05). v0 = Appendix C content (S1-KF-04). v1 = Guardian v0/v1 content (S2-KF-08). Anything other than skeleton must have at least one hidden name per allergen.",
-      "enum": ["skeleton", "v0", "v1"]
+      "enum": [
+        "skeleton",
+        "v0",
+        "v1"
+      ]
     },
     "riskLevels": {
       "description": "Fixed by FR-ALG-03 and Appendix C Table C.2.",
-      "const": ["SAFE", "CAUTION", "DANGER"]
+      "const": [
+        "SAFE",
+        "CAUTION",
+        "DANGER"
+      ]
     },
     "traceFlags": {
       "description": "Dish-data flags that produce CAUTION (FR-ALG-05).",
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": { "$ref": "#/$defs/snakeId" }
+      "items": {
+        "$ref": "#/$defs/snakeId"
+      }
     },
     "allergens": {
       "description": "Exactly the ten Appendix C categories, one entry each.",
       "type": "array",
       "minItems": 10,
       "maxItems": 10,
-      "items": { "$ref": "#/$defs/allergen" }
+      "items": {
+        "$ref": "#/$defs/allergen"
+      }
     },
     "dietTypes": {
       "description": "SRS Table 4.7. Calorie and diet rules are added in later tasks.",
       "type": "array",
       "minItems": 5,
       "maxItems": 5,
-      "items": { "$ref": "#/$defs/dietType" }
+      "items": {
+        "$ref": "#/$defs/dietType"
+      }
     }
   },
   "$defs": {
-    "snakeId": { "type": "string", "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" },
+    "snakeId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$"
+    },
     "matchName": {
       "description": "Lowercase ingredient name, trimmed, letters, digits, spaces and hyphens only.",
       "type": "string",
@@ -49,37 +79,105 @@
     "allergen": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "nameEn", "nameUr", "hiddenNames", "directNames"],
+      "required": [
+        "id",
+        "nameEn",
+        "nameUr",
+        "namesUr",
+        "hiddenNames",
+        "directNames"
+      ],
       "properties": {
         "id": {
           "description": "Language-independent, never changes (FR-ALG-11).",
-          "enum": ["gluten", "nuts", "dairy", "eggs", "shellfish", "soy", "sesame", "fish", "sulfites", "mustard"]
+          "enum": [
+            "gluten",
+            "nuts",
+            "dairy",
+            "eggs",
+            "shellfish",
+            "soy",
+            "sesame",
+            "fish",
+            "sulfites",
+            "mustard"
+          ]
         },
-        "nameEn": { "type": "string", "minLength": 1 },
-        "nameUr": { "type": ["string", "null"], "minLength": 1 },
+        "nameEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nameUr": {
+          "description": "Urdu name of the allergen category (FR-ALG-11). null only while contentStatus is skeleton.",
+          "oneOf": [
+            {
+              "$ref": "#/$defs/urduText"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "namesUr": {
+          "description": "Urdu text for hidden and direct names, keyed by the English name (FR-ALG-11). Every hidden name needs an entry once contentStatus is not skeleton.",
+          "type": "object",
+          "propertyNames": {
+            "$ref": "#/$defs/matchName"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/urduText"
+          }
+        },
         "hiddenNames": {
           "description": "Hidden or alternate names from Appendix C Table C.1 (FR-ALG-02).",
           "type": "array",
           "uniqueItems": true,
-          "items": { "$ref": "#/$defs/matchName" }
+          "items": {
+            "$ref": "#/$defs/matchName"
+          }
         },
         "directNames": {
           "description": "Plain ingredient names that unambiguously contain this allergen.",
           "type": "array",
           "uniqueItems": true,
-          "items": { "$ref": "#/$defs/matchName" }
+          "items": {
+            "$ref": "#/$defs/matchName"
+          }
         }
       }
     },
     "dietType": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "nameEn", "targetGoal"],
+      "required": [
+        "id",
+        "nameEn",
+        "targetGoal"
+      ],
       "properties": {
-        "id": { "enum": ["weight_loss", "muscle_gain", "maintenance", "diabetic_friendly", "heart_healthy"] },
-        "nameEn": { "type": "string", "minLength": 1 },
-        "targetGoal": { "type": "string", "minLength": 1 }
+        "id": {
+          "enum": [
+            "weight_loss",
+            "muscle_gain",
+            "maintenance",
+            "diabetic_friendly",
+            "heart_healthy"
+          ]
+        },
+        "nameEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targetGoal": {
+          "type": "string",
+          "minLength": 1
+        }
       }
+    },
+    "urduText": {
+      "description": "Urdu text. Arabic-script letters, spaces, brackets and the Urdu comma only, so English text cannot be pasted here by mistake.",
+      "type": "string",
+      "pattern": "^[؀-ۿݐ-ݿ ()،-]+$"
     }
   }
 }

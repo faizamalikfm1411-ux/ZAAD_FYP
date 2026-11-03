@@ -25,4 +25,5 @@ CI runs both commands on every pull request, so a broken rules file fails the bu
 
 - Allergen ids are fixed (FR-ALG-11). Never rename one.
 - Names are lowercase and trimmed. A name may belong to one allergen only.
+- Urdu (FR-ALG-11): every allergen needs `nameUr`, and every hidden name needs an entry in `namesUr`. Both are drafts until a native speaker verifies them. The loader fails the build if any are missing.
 - Keep the Python and TypeScript engines on this one file. Never copy the rules into code.

@@ -78,6 +78,17 @@ def validate_rules(data: object, schema: object) -> list[str]:
             owner.setdefault(name, a["id"])
         if data["contentStatus"] != "skeleton" and not a["hiddenNames"]:
             problems.append(f"allergen {a['id']}: contentStatus is {data['contentStatus']!r} but hiddenNames is empty")
+        known = set(a["hiddenNames"]) | set(a["directNames"])
+        stray = set(a["namesUr"]) - known
+        if stray:
+            problems.append(f"allergen {a['id']}: namesUr has entries for unknown names: {', '.join(sorted(stray))}")
+        if data["contentStatus"] != "skeleton":
+            # FR-ALG-11: Urdu names for each allergen and its hidden names
+            if a["nameUr"] is None:
+                problems.append(f"allergen {a['id']}: nameUr is missing (FR-ALG-11)")
+            no_ur = [n for n in a["hiddenNames"] if n not in a["namesUr"]]
+            if no_ur:
+                problems.append(f"allergen {a['id']}: no Urdu text for hidden name(s): {', '.join(no_ur)} (FR-ALG-11)")
 
     diet_ids = [d["id"] for d in data["dietTypes"]]
     if len(set(diet_ids)) != len(diet_ids):
@@ -100,6 +111,14 @@ def load_rules(path: Path | str = DEFAULT_RULES, schema_path: Path | str = DEFAU
     if problems:
         raise RulesError(problems)
     return data  # type: ignore[return-value]
+
+
+def display_name(rules: dict, allergen_id: str, lang: str = "en") -> str:
+    """Name to show a customer. lang is 'en' or 'ur'. Falls back to English if Urdu is missing."""
+    for a in rules["allergens"]:
+        if a["id"] == allergen_id:
+            return (a["nameUr"] if lang == "ur" else None) or a["nameEn"]
+    raise KeyError(allergen_id)
 
 
 def build_name_index(rules: dict) -> dict[str, str]:

@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from validate_rules import DEFAULT_RULES, DEFAULT_SCHEMA, RulesError, build_name_index, load_rules
+from validate_rules import DEFAULT_RULES, DEFAULT_SCHEMA, RulesError, build_name_index, display_name, load_rules
 
 HERE = Path(__file__).resolve().parent
 GOOD = json.loads(DEFAULT_RULES.read_text(encoding="utf-8"))
@@ -61,6 +61,12 @@ BROKEN = {
     "bad schemaVersion": lambda d: d.update(schemaVersion=2),
     "non-snake trace flag": lambda d: d["traceFlags"].append("Shared Fryer"),
     "diet type missing": lambda d: d["dietTypes"].pop(),
+    "nameUr missing in v0": lambda d: d["allergens"][0].update(nameUr=None),
+    "nameUr in English letters": lambda d: d["allergens"][0].update(nameUr="Gluten"),
+    "namesUr value in English letters": lambda d: d["allergens"][0]["namesUr"].update(maida="flour"),
+    "hidden name without Urdu": lambda d: d["allergens"][0]["namesUr"].pop("maida"),
+    "namesUr entry for unknown name": lambda d: d["allergens"][0]["namesUr"].update(cheese="پنیر"),
+    "namesUr missing field": lambda d: d["allergens"][0].pop("namesUr"),
     "nameUr empty string": lambda d: d["allergens"][0].update(nameUr=""),
 }
 
@@ -104,3 +110,18 @@ def test_command_line_exit_codes(tmp_path):
     fail = subprocess.run([sys.executable, script, str(bad)], capture_output=True, text=True)
     assert fail.returncode == 1
     assert "INVALID" in fail.stdout
+
+
+def test_every_allergen_has_urdu_name_and_urdu_for_every_hidden_name():
+    rules = load_rules()
+    for a in rules["allergens"]:
+        assert a["nameUr"], a["id"]
+        assert set(a["hiddenNames"]) <= set(a["namesUr"]), a["id"]
+
+
+def test_display_name_in_both_languages():
+    rules = load_rules()
+    assert display_name(rules, "dairy", "en") == "Dairy"
+    assert display_name(rules, "dairy", "ur") == "دودھ سے بنی اشیاء"
+    with pytest.raises(KeyError):
+        display_name(rules, "peanut")

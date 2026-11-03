@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "rulesVersion": "0.0.1",
-  "contentStatus": "skeleton",
+  "rulesVersion": "0.2.0",
+  "contentStatus": "v0",
   "riskLevels": [
     "SAFE",
     "CAUTION",
@@ -17,71 +17,204 @@
     {
       "id": "gluten",
       "nameEn": "Gluten",
-      "nameUr": null,
-      "hiddenNames": [],
-      "directNames": []
+      "nameUr": "گلوٹین",
+      "namesUr": {
+        "semolina": "سوجی",
+        "maida": "میدہ",
+        "durum": "ڈیورم گندم",
+        "atta": "آٹا",
+        "seitan": "سیٹن",
+        "malt": "مالٹ",
+        "flour": "آٹا",
+        "bread": "ڈبل روٹی"
+      },
+      "hiddenNames": [
+        "semolina",
+        "maida",
+        "durum",
+        "atta",
+        "seitan",
+        "malt"
+      ],
+      "directNames": [
+        "flour",
+        "bread"
+      ]
     },
     {
       "id": "nuts",
       "nameEn": "Nuts",
-      "nameUr": null,
-      "hiddenNames": [],
+      "nameUr": "گری دار میوے",
+      "namesUr": {
+        "almond": "بادام",
+        "cashew": "کاجو",
+        "pistachio": "پستہ",
+        "walnut": "اخروٹ",
+        "praline": "پرالین",
+        "marzipan": "مارزیپن"
+      },
+      "hiddenNames": [
+        "almond",
+        "cashew",
+        "pistachio",
+        "walnut",
+        "praline",
+        "marzipan"
+      ],
       "directNames": []
     },
     {
       "id": "dairy",
       "nameEn": "Dairy",
-      "nameUr": null,
-      "hiddenNames": [],
-      "directNames": []
+      "nameUr": "دودھ سے بنی اشیاء",
+      "namesUr": {
+        "casein": "کیسین",
+        "caseinate": "کیسینیٹ",
+        "whey": "وے",
+        "lactose": "لیکٹوز",
+        "ghee": "گھی",
+        "butterfat": "مکھن کی چکنائی",
+        "milk": "دودھ",
+        "butter": "مکھن",
+        "cream": "کریم",
+        "yogurt": "دہی",
+        "paneer": "پنیر"
+      },
+      "hiddenNames": [
+        "casein",
+        "caseinate",
+        "whey",
+        "lactose",
+        "ghee",
+        "butterfat"
+      ],
+      "directNames": [
+        "milk",
+        "butter",
+        "cream",
+        "yogurt",
+        "paneer"
+      ]
     },
     {
       "id": "eggs",
       "nameEn": "Eggs",
-      "nameUr": null,
-      "hiddenNames": [],
-      "directNames": []
+      "nameUr": "انڈے",
+      "namesUr": {
+        "albumin": "البومن",
+        "ovalbumin": "اووالبومن",
+        "lysozyme": "لائسوزائم",
+        "mayonnaise": "مایونیز",
+        "egg": "انڈا",
+        "egg wash": "انڈے کا محلول",
+        "meringue": "میرنگ"
+      },
+      "hiddenNames": [
+        "albumin",
+        "ovalbumin",
+        "lysozyme",
+        "mayonnaise"
+      ],
+      "directNames": [
+        "egg",
+        "egg wash",
+        "meringue"
+      ]
     },
     {
       "id": "shellfish",
       "nameEn": "Shellfish",
-      "nameUr": null,
-      "hiddenNames": [],
+      "nameUr": "شیل فش (جھینگا، کیکڑا)",
+      "namesUr": {
+        "prawn paste": "جھینگے کا پیسٹ",
+        "shrimp": "جھینگا",
+        "crab extract": "کیکڑے کا عرق"
+      },
+      "hiddenNames": [
+        "prawn paste",
+        "shrimp",
+        "crab extract"
+      ],
       "directNames": []
     },
     {
       "id": "soy",
       "nameEn": "Soy",
-      "nameUr": null,
-      "hiddenNames": [],
+      "nameUr": "سویا",
+      "namesUr": {
+        "soy lecithin": "سویا لیسیتھن",
+        "edamame": "ایڈامامے",
+        "tofu": "ٹوفو",
+        "soy sauce": "سویا ساس"
+      },
+      "hiddenNames": [
+        "soy lecithin",
+        "edamame",
+        "tofu",
+        "soy sauce"
+      ],
       "directNames": []
     },
     {
       "id": "sesame",
       "nameEn": "Sesame",
-      "nameUr": null,
-      "hiddenNames": [],
+      "nameUr": "تل",
+      "namesUr": {
+        "tahini": "تحینی",
+        "gingelly oil": "تل کا تیل",
+        "til": "تل"
+      },
+      "hiddenNames": [
+        "tahini",
+        "gingelly oil",
+        "til"
+      ],
       "directNames": []
     },
     {
       "id": "fish",
       "nameEn": "Fish",
-      "nameUr": null,
-      "hiddenNames": [],
+      "nameUr": "مچھلی",
+      "namesUr": {
+        "fish sauce": "فش ساس",
+        "anchovy": "اینکووی",
+        "surimi": "سوریمی"
+      },
+      "hiddenNames": [
+        "fish sauce",
+        "anchovy",
+        "surimi"
+      ],
       "directNames": []
     },
     {
       "id": "sulfites",
       "nameEn": "Sulfites",
-      "nameUr": null,
-      "hiddenNames": [],
+      "nameUr": "سلفائٹس",
+      "namesUr": {
+        "sulphur dioxide": "سلفر ڈائی آکسائیڈ",
+        "sodium metabisulfite": "سوڈیم میٹابائی سلفائٹ"
+      },
+      "hiddenNames": [
+        "sulphur dioxide",
+        "sodium metabisulfite"
+      ],
       "directNames": []
     },
     {
       "id": "mustard",
       "nameEn": "Mustard",
-      "nameUr": null,
-      "hiddenNames": [],
+      "nameUr": "سرسوں",
+      "namesUr": {
+        "mustard seed": "سرسوں کے بیج",
+        "mustard oil": "سرسوں کا تیل",
+        "mustard paste": "سرسوں کا پیسٹ"
+      },
+      "hiddenNames": [
+        "mustard seed",
+        "mustard oil",
+        "mustard paste"
+      ],
       "directNames": []
     }
   ],
