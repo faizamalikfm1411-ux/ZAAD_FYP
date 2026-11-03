@@ -1,0 +1,240 @@
+{
+  "version": "0.2",
+  "status": "draft, pending review by Faiza Malik; Urdu names are drafts pending native-speaker verification",
+  "source": "SRS v1.2, Appendix C Table C.1 and FR-MENU-03",
+  "id_rules": "IDs are lowercase snake_case, language-independent and must never change. They are reused by the backend, the TypeScript copy, the Urdu content and the shared rules JSON (FR-ALG-11).",
+  "allergens": [
+    {
+      "id": "gluten",
+      "name_en": "Gluten",
+      "name_ur": "گلوٹین",
+      "synonyms_en": [
+        "semolina",
+        "maida",
+        "durum",
+        "atta",
+        "seitan",
+        "malt"
+      ],
+      "example_ingredients": [
+        "flour",
+        "bread",
+        "buns",
+        "batter coating"
+      ],
+      "notes": "",
+      "synonyms_ur": {
+        "semolina": "سوجی",
+        "maida": "میدہ",
+        "durum": "ڈیورم گندم",
+        "atta": "آٹا",
+        "seitan": "سیٹن",
+        "malt": "مالٹ"
+      }
+    },
+    {
+      "id": "nuts",
+      "name_en": "Nuts",
+      "name_ur": "گری دار میوے",
+      "synonyms_en": [
+        "almond",
+        "cashew",
+        "pistachio",
+        "walnut",
+        "praline",
+        "marzipan"
+      ],
+      "example_ingredients": [
+        "nut toppings",
+        "dessert garnishes"
+      ],
+      "notes": "Appendix C lists tree nuts only. Peanut and coconut are not covered. See open_questions 1.",
+      "synonyms_ur": {
+        "almond": "بادام",
+        "cashew": "کاجو",
+        "pistachio": "پستہ",
+        "walnut": "اخروٹ",
+        "praline": "پرالین",
+        "marzipan": "مارزیپن"
+      }
+    },
+    {
+      "id": "dairy",
+      "name_en": "Dairy",
+      "name_ur": "دودھ سے بنی اشیاء",
+      "synonyms_en": [
+        "casein",
+        "caseinate",
+        "whey",
+        "lactose",
+        "ghee",
+        "butterfat"
+      ],
+      "example_ingredients": [
+        "milk",
+        "butter",
+        "cream",
+        "yogurt",
+        "paneer"
+      ],
+      "notes": "",
+      "synonyms_ur": {
+        "casein": "کیسین",
+        "caseinate": "کیسینیٹ",
+        "whey": "وے",
+        "lactose": "لیکٹوز",
+        "ghee": "گھی",
+        "butterfat": "مکھن کی چکنائی"
+      }
+    },
+    {
+      "id": "eggs",
+      "name_en": "Eggs",
+      "name_ur": "انڈے",
+      "synonyms_en": [
+        "albumin",
+        "ovalbumin",
+        "lysozyme",
+        "mayonnaise"
+      ],
+      "example_ingredients": [
+        "egg",
+        "egg wash",
+        "meringue"
+      ],
+      "notes": "",
+      "synonyms_ur": {
+        "albumin": "البومن",
+        "ovalbumin": "اووالبومن",
+        "lysozyme": "لائسوزائم",
+        "mayonnaise": "مایونیز"
+      }
+    },
+    {
+      "id": "shellfish",
+      "name_en": "Shellfish",
+      "name_ur": "شیل فش (جھینگا، کیکڑا)",
+      "synonyms_en": [
+        "prawn paste",
+        "shrimp",
+        "crab extract"
+      ],
+      "example_ingredients": [
+        "seafood dishes"
+      ],
+      "notes": "",
+      "synonyms_ur": {
+        "prawn paste": "جھینگے کا پیسٹ",
+        "shrimp": "جھینگا",
+        "crab extract": "کیکڑے کا عرق"
+      }
+    },
+    {
+      "id": "soy",
+      "name_en": "Soy",
+      "name_ur": "سویا",
+      "synonyms_en": [
+        "soy lecithin",
+        "edamame",
+        "tofu",
+        "soy sauce"
+      ],
+      "example_ingredients": [
+        "sauces",
+        "oils"
+      ],
+      "notes": "",
+      "synonyms_ur": {
+        "soy lecithin": "سویا لیسیتھن",
+        "edamame": "ایڈامامے",
+        "tofu": "ٹوفو",
+        "soy sauce": "سویا ساس"
+      }
+    },
+    {
+      "id": "sesame",
+      "name_en": "Sesame",
+      "name_ur": "تل",
+      "synonyms_en": [
+        "tahini",
+        "gingelly oil",
+        "til"
+      ],
+      "example_ingredients": [
+        "buns",
+        "dressings"
+      ],
+      "notes": "",
+      "synonyms_ur": {
+        "tahini": "تحینی",
+        "gingelly oil": "تل کا تیل",
+        "til": "تل"
+      }
+    },
+    {
+      "id": "fish",
+      "name_en": "Fish",
+      "name_ur": "مچھلی",
+      "synonyms_en": [
+        "fish sauce",
+        "anchovy",
+        "surimi"
+      ],
+      "example_ingredients": [
+        "seafood dishes",
+        "sauces"
+      ],
+      "notes": "",
+      "synonyms_ur": {
+        "fish sauce": "فش ساس",
+        "anchovy": "اینکووی",
+        "surimi": "سوریمی"
+      }
+    },
+    {
+      "id": "sulfites",
+      "name_en": "Sulfites",
+      "name_ur": "سلفائٹس",
+      "synonyms_en": [
+        "sulphur dioxide",
+        "sodium metabisulfite"
+      ],
+      "example_ingredients": [
+        "dried fruit",
+        "sauces"
+      ],
+      "notes": "",
+      "synonyms_ur": {
+        "sulphur dioxide": "سلفر ڈائی آکسائیڈ",
+        "sodium metabisulfite": "سوڈیم میٹابائی سلفائٹ"
+      }
+    },
+    {
+      "id": "mustard",
+      "name_en": "Mustard",
+      "name_ur": "سرسوں",
+      "synonyms_en": [
+        "mustard seed",
+        "mustard oil",
+        "mustard paste"
+      ],
+      "example_ingredients": [
+        "curries",
+        "marinades",
+        "dressings"
+      ],
+      "notes": "",
+      "synonyms_ur": {
+        "mustard seed": "سرسوں کے بیج",
+        "mustard oil": "سرسوں کا تیل",
+        "mustard paste": "سرسوں کا پیسٹ"
+      }
+    }
+  ],
+  "open_questions": [
+    "1. 'Nuts' in Appendix C lists only tree nuts (almond, cashew, pistachio, walnut, praline, marzipan). Peanut, hazelnut, pecan and coconut are not listed. Is peanut covered by 'nuts'? Peanut is a common serious allergen, so a decision from the supervisors is needed before dish data is entered.",
+    "2. FR-ALG-11 requires Urdu names for each allergen and its hidden names, but Appendix C Table C.1 has none. Draft Urdu names (name_ur, synonyms_ur) were added here and must be verified by a native speaker before dishes go live (SRS 4.2: both language versions verified). Appendix C should be updated with the verified names.",
+    "3. The example ingredients in Appendix C (milk, butter, paneer, egg, flour) are direct ingredients, not hidden names. Recommend the rules file (S1-KF-04 and S2-KF-08) matches them too, so that a dish listing 'paneer' is flagged as dairy.",
+    "4. Appendix C says its examples are indicative and must be checked against the final dish ingredient data. Re-check this file when the 20 dishes are entered."
+  ]
+}
