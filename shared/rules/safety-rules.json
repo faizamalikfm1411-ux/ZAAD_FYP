@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "rulesVersion": "0.0.1",
+  "contentStatus": "skeleton",
+  "riskLevels": [
+    "SAFE",
+    "CAUTION",
+    "DANGER"
+  ],
+  "traceFlags": [
+    "may_contain_traces",
+    "shared_fryer",
+    "shared_utensils",
+    "shared_kitchen"
+  ],
+  "allergens": [
+    {
+      "id": "gluten",
+      "nameEn": "Gluten",
+      "nameUr": null,
+      "hiddenNames": [],
+      "directNames": []
+    },
+    {
+      "id": "nuts",
+      "nameEn": "Nuts",
+      "nameUr": null,
+      "hiddenNames": [],
+      "directNames": []
+    },
+    {
+      "id": "dairy",
+      "nameEn": "Dairy",
+      "nameUr": null,
+      "hiddenNames": [],
+      "directNames": []
+    },
+    {
+      "id": "eggs",
+      "nameEn": "Eggs",
+      "nameUr": null,
+      "hiddenNames": [],
+      "directNames": []
+    },
+    {
+      "id": "shellfish",
+      "nameEn": "Shellfish",
+      "nameUr": null,
+      "hiddenNames": [],
+      "directNames": []
+    },
+    {
+      "id": "soy",
+      "nameEn": "Soy",
+      "nameUr": null,
+      "hiddenNames": [],
+      "directNames": []
+    },
+    {
+      "id": "sesame",
+      "nameEn": "Sesame",
+      "nameUr": null,
+      "hiddenNames": [],
+      "directNames": []
+    },
+    {
+      "id": "fish",
+      "nameEn": "Fish",
+      "nameUr": null,
+      "hiddenNames": [],
+      "directNames": []
+    },
+    {
+      "id": "sulfites",
+      "nameEn": "Sulfites",
+      "nameUr": null,
+      "hiddenNames": [],
+      "directNames": []
+    },
+    {
+      "id": "mustard",
+      "nameEn": "Mustard",
+      "nameUr": null,
+      "hiddenNames": [],
+      "directNames": []
+    }
+  ],
+  "dietTypes": [
+    {
+      "id": "weight_loss",
+      "nameEn": "Weight Loss",
+      "targetGoal": "Caloric deficit"
+    },
+    {
+      "id": "muscle_gain",
+      "nameEn": "Muscle Gain",
+      "targetGoal": "Hypertrophy / High protein"
+    },
+    {
+      "id": "maintenance",
+      "nameEn": "Maintenance",
+      "targetGoal": "Balanced intake"
+    },
+    {
+      "id": "diabetic_friendly",
+      "nameEn": "Diabetic-Friendly",
+      "targetGoal": "Glycemic control"
+    },
+    {
+      "id": "heart_healthy",
+      "nameEn": "Heart-Healthy",
+      "targetGoal": "Cardiovascular health"
+    }
+  ]
+}

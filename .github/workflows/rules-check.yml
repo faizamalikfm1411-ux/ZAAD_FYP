@@ -1,0 +1,21 @@
+name: Rules check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  rules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install rules checker
+        run: pip install -r shared/rules/requirements-dev.txt
+      - name: Validate shared safety rules (a broken file fails the build)
+        run: python shared/rules/validate_rules.py
+      - name: Rules loader tests
+        run: pytest shared/rules -q
